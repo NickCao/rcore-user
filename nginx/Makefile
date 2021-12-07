@@ -3,7 +3,7 @@ nginx_tarball := nginx-$(nginx_version).tar.gz
 nginx_tarball_path := src/nginx-$(nginx_version).tar.gz
 build_dir := build/$(ARCH)
 nginx_dir := $(build_dir)/nginx-$(nginx_version)
-prefix := $(ARCH)-linux-musl-
+prefix := $(ARCH)-unknown-linux-musl-
 bin_unstripped := build/$(ARCH)/nginx_unstripped
 bin := build/$(ARCH)/nginx
 

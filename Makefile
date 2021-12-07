@@ -217,7 +217,7 @@ else
 endif
 
 # vmm
-vmm: | vmm/*
+vmm:
 ifeq ($(EN_VMM), y)
 	@echo Building rcore-vmm
 	@mkdir -p $(out_dir)/vmm

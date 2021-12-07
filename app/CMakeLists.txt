@@ -9,7 +9,7 @@ include_directories(src/include)
 set(EXECUTABLE_OUTPUT_PATH ${ARCH})
 
 # Toolchain
-set(PREFIX ${ARCH}-linux-musl-)
+set(PREFIX ${ARCH}-unknown-linux-musl-)
 
 if (${ARCH} STREQUAL x86_64)
     set(CMAKE_C_FLAGS       "-m64")

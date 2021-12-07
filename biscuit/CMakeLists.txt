@@ -24,7 +24,7 @@ find_path(KERNEL_HEADERS_DIR
 
 # Toolchain
 
-set(PREFIX ${ARCH}-linux-musl-)
+set(PREFIX ${ARCH}-unknown-linux-musl-)
 
 if (${ARCH} STREQUAL x86_64)
     set(CMAKE_C_FLAGS       "-m64 -mno-red-zone")
