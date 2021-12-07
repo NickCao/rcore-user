@@ -614,6 +614,8 @@ enum SyscallId {
     EpollCreate1 = 20,
     EpollCtl = 21,
     EpollPwait = 22,
+    EbpfRegister = 1000,
+    EbpfUnregister = 1001,
 }
 
 #[repr(C)]
@@ -720,4 +722,14 @@ bitflags! {
         /// The mapping is not backed by any file. (non-POSIX)
         const ANONYMOUS = 1 << 5;
     }
+}
+
+#[cfg(any(target_arch = "riscv32", target_arch = "riscv64"))]
+pub fn sys_register_ebpf(addr: usize, base: *const u8, len: usize) -> i32 {
+    sys_call(SyscallId::EbpfRegister, addr, base as usize, len, 0, 0, 0)
+}
+
+#[cfg(any(target_arch = "riscv32", target_arch = "riscv64"))]
+pub fn sys_unregister_ebpf(addr: usize) -> i32 {
+    sys_call(SyscallId::EbpfUnregister, addr, 0, 0, 0, 0, 0)
 }
