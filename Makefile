@@ -37,8 +37,8 @@ rcore_fs_fuse_revision := 7f5eeac
 biscuit_bin_path := biscuit/build/$(ARCH)
 app_bin_path := app/build/$(ARCH)
 busybox := $(out_dir)/busybox
-alpine_version_major := 3.12
-alpine_version_full := 3.12.0
+alpine_version_major := edge
+alpine_version_full := 3.15.0_alpha20210804
 alpine_file := alpine-minirootfs-$(alpine_version_full)-$(ARCH).tar.gz
 alpine := alpine/$(alpine_file)
 rust_src_dir := rust/src/bin
@@ -177,7 +177,7 @@ else
 endif
 
 $(alpine):
-	-wget "http://dl-cdn.alpinelinux.org/alpine/v$(alpine_version_major)/releases/$(ARCH)/$(alpine_file)" -O $(alpine)
+	-wget "http://dl-cdn.alpinelinux.org/alpine/$(alpine_version_major)/releases/$(ARCH)/$(alpine_file)" -O $(alpine)
 
 # musl-gcc
 musl-gcc: $(musl-gcc)
